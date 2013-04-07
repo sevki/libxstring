@@ -9,7 +9,7 @@ void test_memory__allocate(int sz)
     while(sz-->0){
         xstring *s =xs_alloc(2000);
         FILE *f = fopen("/dev/random", "r");
-        fgets(s->data, 2000, f);
+        fgets(s->data, 20, f);
         puts(s->data);
         xs_free(s);
     }
@@ -55,7 +55,7 @@ void test_memory__substring()
 int main()
 {
 
-    test_memory__allocate(20);
+    test_memory__allocate(2);
 #ifdef __APPLE__
     // Becasue VALGRIND on OSX is retarted
     char com[20];
