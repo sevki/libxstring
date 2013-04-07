@@ -1,0 +1,11 @@
+language: c
+script: "make test"
+branches:
+  only:
+    - master
+notifications:
+  recipients:
+    - s@sevki.org
+  email:
+    on_success: change
+    on_failure: always
