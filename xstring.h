@@ -35,12 +35,14 @@
 #ifndef _XSTRING_H
 #define _XSTRING_H
 
-#include "bm.h"
+
 #include <string.h>
 #include <stdio.h>
+#include <ctype.h>
+#include <stdint.h>
 typedef struct
 {
-    char *data;
+    uint8_t *data;
     int size;
 } xstring;
 
@@ -53,9 +55,11 @@ void xs_free();
  /* String utils */
 xstring *xs_from_string(char *x);
 int xs_cat(xstring *p, xstring *q);
+void xs_to_lower(xstring *x);
+void xs_to_upper(xstring *x);
 
  /* String Search */
-char *xs_find(xstring *x, xstring *pat);
+uint8_t *xs_find(xstring *x, xstring *pat);
 xstring *xs_substr_btwn_char(xstring *x, char a);
 xstring *xs_substr_btwn_chars(xstring *x, char a, char b);
 
