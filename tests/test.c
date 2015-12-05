@@ -4,6 +4,8 @@
 #include <unistd.h>
 #include <assert.h>
 #include <wchar.h>
+#include <stdlib.h>
+
 void test_memory__allocate(int sz)
 {
     while(sz-->0){
