@@ -1,22 +1,20 @@
-cxx_library(
-	name = 'libxstring',
-	headers = glob(['*.h']),
-	compiler_flags = [
-	      '-ansi',
-	      '-Wno-unused-variable',
-          '-Wno-system-headers',
-	      '-pedantic',
-	      '-c',
-	],
-	srcs = glob(['*.c']),
-)
+C_FLAGS = [
+    "-Wall",
+    "-ansi",
+    "-Wno-unused-variable",
+    "-pedantic",
+    "-Werror",
+    "-c",
+]
 
-cxx_binary(
-	name = 'test',
-	srcs = [
-	       'tests/test.c',
-	    ],
-	deps = [
-	       ':libxstring',
-	    ]
+cxx_library(
+    name="libxstring",
+    headers=glob(["*.h"]),
+    platform_headers=[
+        "/usr/lib/",
+        "/usr/include"
+    ],
+    compiler_flags= C_FLAGS,
+    srcs=glob(["*.c"]),
 )
+	
